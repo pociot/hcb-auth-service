@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: hcb-auth-service
+
+server:
+  port: 8383
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka/
