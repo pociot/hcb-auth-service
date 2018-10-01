@@ -20,8 +20,6 @@ public class OAuth2AuthorizationConfig extends AuthorizationServerConfigurerAdap
 
   private final TokenStore tokenStore = new InMemoryTokenStore();
 
-  private final String NOOP_PASSWORD_ENCODE = "{noop}";
-
   private final AuthenticationManager authenticationManager;
   private final MongoUserDetailsService userDetailsService;
   private final Environment environment;
