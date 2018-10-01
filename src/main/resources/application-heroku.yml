@@ -1,0 +1,27 @@
+eureka:
+  instance:
+    hostname: ${DOMAIN_NAME}
+    non-secure-port-enabled: false
+    secure-port-enabled: true
+    statusPageUrl: https://${DOMAIN_NAME}/actuator/info
+    healthCheckUrl: https://${DOMAIN_NAME}/actuator/health
+    secure-health-check-url: https://${DOMAIN_NAME}/actuator/health
+    homePageUrl: https://${DOMAIN_NAME}/
+    instance-id: ${DOMAIN_NAME}
+    secure-port: 443
+    non-secure-port: 80
+  client:
+    serviceUrl:
+      defaultZone: https://hcb-eureka-kpociot.herokuapp.com/eureka/
+
+logging:
+  level:
+    org.springframework.cloud.netflix: DEBUG
+    org.springframework.cloud.gateway: DEBUG
+    org.springframework.http.server.reactive: DEBUG
+    org.springframework.web.reactive: DEBUG
+    reactor.ipc.netty: DEBUG
+
+spring:
+  application:
+    name: hcb-auth-service
