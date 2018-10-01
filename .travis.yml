@@ -22,6 +22,6 @@ deploy:
   provider: heroku
   api_key:
     secure: VaoiID+wMqzkwhUhm4czRaNIWqApd+OeHt3FLThS+NqyBM8RfztJNZ6VB/cfbD350ho6EnfM6N8rV67jwlrErSaLVhYL3VzlV5nk+A591EITb716YE6Z7bUR4CGIjyloIWoNOtT+y+5ZeY60qp4BFfhbGQ3srMWsDN3Nu69krSN/lvQuqoA6K2gnifxVmoo0RN6V+epv3EXUi6nhF0botYnDj6bEljoNIk1S3wikkenyzhwIGeiqiocA8Cz35dy/WYWoj/pYiPJxwylk1XWoMaj47uVBSESuz160Ktlxj36jkwdVGW2LOIBTfIFLN2Xj08apWNPIePOIN4COalLD0Sy+wCqF/xCZqXTTTLwuz9l4VySDJx+7AI+Jb3X3ZRi0vgqM8+y4tgwk8YMBKYJKMUOyZYt6vpup/RdGaOrzd0fEmwVJKGCqt5XoWaxxkwYuTsX/dCU7Bkivt17wcK+AUpprqfbxSKdCKhaMwCfreLaG6K5FCms932WZFmmQFcjPQfptk8b4qUfXDM3I3ZpRGEqr+0DXqYwXSVnTv0onpx0pH9u/cEcuyr4Q8YJsfccV+QrVCsZDdCvB+6Hfv55tKYfPWyVgFVhcVRphwYO38jatYO+BN7vCppAJemDA8imDkTSHlo/bXpOrie8g0OJXrGMt9Q5QxCkEm38uFsuT8B4=
-  app: hcb-account-auth-kpociot
+  app: hcb-auth-service-kpociot
   on:
     repo: pociot/hcb-auth-service
