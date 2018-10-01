@@ -1,0 +1,27 @@
+dist: trusty
+sudo: required
+
+language: java
+jdk: oraclejdk8
+
+branches:
+  only:
+  - master
+
+addons:
+  sonarcloud:
+    organization: pociot-github
+    token:
+      secure: bonCpuQrlanu0Nto6Z2mXmqF3kbGSO2fifqay5vMngK5exKzopUhjylLFqXoLQ+JXITwaGPqeodYhOFUuEnmZ1G9CO2s7lFP1s3D1FUBbJD2tAJqPAbCGggpQnsyU9SULauOjmPAfgx9RuyOU2tRcS/3CBgwhQTqeygPIHG1xWDuaKpSjlw+mIt+yJK00vaKr3RaenqXbREATHVuv91cQGt++4uyDOxAfLoPKWYOKFeUfdEHNPcEpWooW2Vvf31gesESs4V1ft5JOVjsm3Op07AnETpf0oXmSwBN8/OsdQUIxZ2efeotD9exAFMbK8PI/kCrpfO7cXPCrc/QEGUT5kdLIV4xAhxNCObA7y/zlcmYol75JcgCQFh4dBA2EJkChCBFOt87PYa4C84DtZyvW6p+4kvAhA0JnIwATwzS+klMH5P2Wv5B5KQCD2zsnW8zoaVdyNf3H8ey0YS2A9eXeerSaUhInWU3XTjyXrIGT/wg7ejgfKKFI1NFCqYg/OgC21Nrk/IRlcPVjOz3x3hGNBSyyYP8wEjEsVLH+vZ0QurxMQYpi2VxZzvznOoT9gqJAQ2sK/z5ph7u+UFla6WElOWV91kxqrzd60tdFi9zld+v5r6u6bKNEzuZy+QCMGmHhsYmB8YO0RcBhRUgHBVp0IhPj2Eh3WjYSx31s/v1WLA=
+
+script:
+- mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package
+- sonar-scanner
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: VaoiID+wMqzkwhUhm4czRaNIWqApd+OeHt3FLThS+NqyBM8RfztJNZ6VB/cfbD350ho6EnfM6N8rV67jwlrErSaLVhYL3VzlV5nk+A591EITb716YE6Z7bUR4CGIjyloIWoNOtT+y+5ZeY60qp4BFfhbGQ3srMWsDN3Nu69krSN/lvQuqoA6K2gnifxVmoo0RN6V+epv3EXUi6nhF0botYnDj6bEljoNIk1S3wikkenyzhwIGeiqiocA8Cz35dy/WYWoj/pYiPJxwylk1XWoMaj47uVBSESuz160Ktlxj36jkwdVGW2LOIBTfIFLN2Xj08apWNPIePOIN4COalLD0Sy+wCqF/xCZqXTTTLwuz9l4VySDJx+7AI+Jb3X3ZRi0vgqM8+y4tgwk8YMBKYJKMUOyZYt6vpup/RdGaOrzd0fEmwVJKGCqt5XoWaxxkwYuTsX/dCU7Bkivt17wcK+AUpprqfbxSKdCKhaMwCfreLaG6K5FCms932WZFmmQFcjPQfptk8b4qUfXDM3I3ZpRGEqr+0DXqYwXSVnTv0onpx0pH9u/cEcuyr4Q8YJsfccV+QrVCsZDdCvB+6Hfv55tKYfPWyVgFVhcVRphwYO38jatYO+BN7vCppAJemDA8imDkTSHlo/bXpOrie8g0OJXrGMt9Q5QxCkEm38uFsuT8B4=
+  app: hcb-account-auth-kpociot
+  on:
+    repo: pociot/hcb-auth-service

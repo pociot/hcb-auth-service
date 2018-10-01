@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: hcb-auth-service
+
+eureka:
+  client:
+    enabled: false
