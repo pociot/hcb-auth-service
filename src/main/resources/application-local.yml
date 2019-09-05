@@ -2,6 +2,8 @@ spring:
   application:
     name: hcb-auth-service
 
+logging.level.org.springframework.security: DEBUG
+
 server:
   port: 8383
 

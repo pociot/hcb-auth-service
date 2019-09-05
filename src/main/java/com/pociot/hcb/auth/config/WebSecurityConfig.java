@@ -8,19 +8,14 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.web.access.channel.ChannelProcessingFilter;
 
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
   private final MongoUserDetailsService userDetailsService;
-  private final TokenEndpointAuthFilter tokenEndpointAuthFilter;
 
-  public WebSecurityConfig(
-      MongoUserDetailsService userDetailsService,
-      TokenEndpointAuthFilter tokenEndpointAuthFilter) {
+  public WebSecurityConfig(MongoUserDetailsService userDetailsService) {
     this.userDetailsService = userDetailsService;
-    this.tokenEndpointAuthFilter = tokenEndpointAuthFilter;
   }
 
   @Override
@@ -37,7 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
   @Override
   protected void configure(HttpSecurity http) throws Exception {
-    http.addFilterBefore(tokenEndpointAuthFilter, ChannelProcessingFilter.class)
+    http
         .authorizeRequests().anyRequest().authenticated()
         .and()
         .csrf().disable();
